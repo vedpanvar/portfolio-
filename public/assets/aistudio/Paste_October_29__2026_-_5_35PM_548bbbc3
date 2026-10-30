@@ -1,0 +1,1013 @@
+# Website Generation Prompt
+
+> Generated using the **developer-portfolio** preset from ai-website-presets.
+
+**Preset:** developer-portfolio
+**Description:** A developer portfolio with multiple dark and edgy UI styles, varied animation effects for a unique personal brand.
+**Category:** portfolio
+
+## Settings
+- **primary framework:** Next.js
+- **css framework:** Tailwind CSS
+- **animations:** true
+- **3d elements:** false
+
+## Selected Prompts
+- layouts/portfolio-layout.md
+- layouts/routing.md
+- ui/dark-ui.md
+- ui/vaporwave-ui.md
+- animations/hover-effects.md
+- animations/text-animations.md
+- animations/stagger-animations.md
+
+## Instructions
+
+Use the following design system prompts together to generate a cohesive, complete website.
+Each section below defines a specific aspect of the design — combine them all into your implementation.
+
+## User Requirements
+
+The user provided the following specific requirements. Incorporate these into every aspect of the design:
+
+User's original request: "hi"
+Industry/Niche: Developer
+Visual styles: Modern, Dark, Glassmorphism, Gradient, Aurora — blend these styles together
+Color mood: Professional — design the palette around this mood
+
+---
+
+# Creative Portfolio Layout Prompt
+
+## Role
+
+You are a senior frontend designer and layout architect specializing in creative portfolio and personal brand websites. You have refined expertise in visual storytelling, typographic expression, and designing immersive digital experiences that showcase creative work with the polish and intentionality of a gallery exhibition. You understand that a portfolio is both a functional showcase and an artistic statement -- every design choice must reflect the personality and caliber of the work it presents.
+
+## Task
+
+Design and build a complete, production-ready creative portfolio layout that presents a body of professional work with elegance and impact. The site must balance self-expression with usability, guiding visitors through the creator's projects, background, skills, and contact information in a narrative that feels curated rather than listed. The design itself should serve as evidence of the creator's skill: every transition, spacing decision, and typographic choice must demonstrate an elevated design sensibility.
+
+## Layout Structure
+
+The portfolio is composed of the following sections and pages, each contributing to a cohesive personal brand narrative:
+
+1. **Navigation** -- A minimal, fixed navigation bar that stays out of the way but remains accessible. Options include: (a) a horizontal top bar with logo/name on the left and sparse nav links on the right (Work, About, Contact), or (b) a hidden navigation accessible via a hamburger icon that triggers a full-screen overlay menu with large, typographically bold links and a subtle background animation. Include a smooth scroll indicator or progress bar on project detail pages. The active section should be subtly highlighted as the user scrolls.
+
+2. **Hero / Introduction Section** -- A commanding, full-viewport opening section that establishes the creator's identity and tone. Contains: (a) the creator's name in display typography (large, expressive, possibly animated on load), (b) a professional title or one-line tagline (e.g., "Product Designer & Creative Technologist"), (c) a subtle call to action to scroll down or jump to the work section, and (d) a background treatment that sets the mood -- options include a curated image, a slow-moving video loop, a generative art canvas, or a refined gradient. Avoid clutter: this section is about presence, not information density.
+
+3. **Selected Work / Project Showcase** -- The centerpiece of the portfolio. Displays 4 to 8 featured projects in a visually engaging grid. Each project entry includes: (a) a large, high-quality cover image or video thumbnail, (b) the project title, (c) a brief category or role descriptor (e.g., "Brand Identity," "Web Design," "UX Research"), and (d) an optional short summary visible on hover or below the image. The grid layout should feel considered, not templated: vary card sizes, use asymmetric arrangements, or employ a masonry-style layout to create visual rhythm. Hovering on a project should trigger a sophisticated interaction -- a scale shift, a color overlay with the title revealed, or a parallax tilt effect.
+
+4. **Project Detail Page** -- A dedicated page (or expandable section) for each project, containing: (a) a full-width hero image for the project, (b) project metadata (client, role, year, tools used, collaborators), (c) a narrative project description broken into sections (Challenge, Process, Solution, Outcome), (d) an image gallery with full-bleed and contained images mixed for visual pacing, (e) optional embedded video or interactive prototype (Figma embed, CodePen), (f) a "Next Project" / "Previous Project" navigation at the bottom for seamless portfolio browsing.
+
+5. **About Section** -- A thoughtfully composed section that communicates who the creator is beyond their work. Contains: (a) a professional portrait photograph, (b) a biographical narrative in first or third person (2 to 3 paragraphs), (c) a skills or expertise grid organized by category (Design, Development, Tools), using visual indicators like progress bars, tag clouds, or simple categorized lists, (d) optional: education, awards, publications, or speaking engagements, and (e) a downloadable resume link (PDF).
+
+6. **Testimonials / Endorsements (Optional)** -- A small, curated selection of 2 to 4 client or colleague testimonials. Presented as large-format pull quotes with attribution (name, title, company). Designed to feel personal and authentic rather than corporate.
+
+7. **Contact Section** -- A clean, inviting section that encourages visitors to reach out. Contains: (a) a heading with personality (e.g., "Let's build something together" rather than "Contact"), (b) a simple contact form with fields for name, email, and message, (c) a direct email address displayed as clickable text, (d) links to relevant social/professional profiles (LinkedIn, GitHub, Dribbble, Behance, Twitter/X) displayed as icons, and (e) optionally the creator's location or timezone for context.
+
+8. **Footer** -- A minimal footer with copyright, a back-to-top button, and optionally a brief colophon ("Built with Next.js and Tailwind CSS. Set in Inter and Playfair Display.").
+
+## Design Goals
+
+- Treat whitespace as a primary design element: generous margins and padding give each piece of work room to be appreciated individually, evoking the feel of a gallery.
+- Establish a distinctive typographic identity using a curated pairing: one display or serif typeface for headings and the creator's name, and one clean sans-serif for body text and UI elements.
+- Use animation purposefully, not decoratively. Every motion should serve a communicative function: revealing content as the user scrolls, indicating interactivity on hover, or providing spatial context during page transitions. Avoid animation for its own sake.
+- Maintain a muted, sophisticated color palette: a near-white or very light background, near-black text, and one or two accent colors used sparingly for interactive elements and highlights. The work itself should provide the color.
+- Achieve a sense of craftsmanship through micro-details: custom cursor interactions, subtle grain textures, refined easing curves on transitions, thoughtful image crop ratios, and meticulous alignment.
+- Optimize for first-impression impact: the hero section must load fast and look striking within the first 500 milliseconds.
+
+## UI Requirements
+
+- Page transitions between the portfolio index and project detail pages must be smooth and intentional: use shared-element transitions (the clicked project image expanding into the detail page hero) or a fade/slide transition.
+- Scroll-triggered animations should use the Intersection Observer API (or a library wrapping it) to reveal content as it enters the viewport. Animations should be subtle -- fade-up with a slight translate, staggered delays for grid items -- and must respect the `prefers-reduced-motion` media query.
+- Image loading must be optimized: use blur-hash or low-quality image placeholders (LQIP) that transition to full resolution, preventing empty spaces during load.
+- The project showcase grid must maintain visual integrity at all viewport sizes, avoiding orphaned single items or jarring reflows.
+- The contact form must include client-side validation with clear, inline error messages and a success state with a confirmation message. Form submission should be handled without a full page reload.
+- All images in the project detail gallery must support a lightbox or full-screen viewing mode with keyboard navigation (arrow keys, Escape to close).
+- Custom cursor effects (if implemented) must not interfere with accessibility; the underlying native cursor behavior must remain for users who depend on it.
+- Smooth scroll behavior should be implemented for all in-page navigation links, with appropriate offset to account for the fixed navigation bar.
+
+## Responsive Behavior
+
+- **Desktop (1280px and above):** Full expression of the design: large typography, generous whitespace, multi-column project grid (2 to 3 columns with varied sizes), hover interactions active, custom cursor visible. About section with image and text side by side. Full-screen navigation overlay (if used) with large type.
+- **Tablet (768px to 1279px):** Project grid simplifies to 2 columns with more uniform sizing. Typography scales down proportionally but remains expressive. About section may stack image above text. Hover interactions replaced with tap-friendly alternatives. Navigation may shift to a hamburger menu.
+- **Mobile (below 768px):** Single-column layout throughout. Hero section typography scales dramatically but remains impactful (minimum 36px for the name). Project grid becomes a vertically stacked list of full-width project cards. Navigation is exclusively hamburger-triggered. Contact form inputs are full-width. All interactive elements meet 44x44px touch targets. Scroll-triggered animations use simpler, faster variants. Footer is compact with stacked elements.
+
+## Technology Suggestions
+
+- Next.js 14+ (App Router) for file-based routing (each project as a dynamic route), server-side rendering for SEO, and optimized image handling.
+- Tailwind CSS 3+ for utility-first styling with a carefully configured custom theme (extended font families, custom spacing scale, refined color palette).
+- Framer Motion for page transitions (AnimatePresence for route changes), scroll-triggered reveal animations, hover interactions on project cards, and the navigation overlay.
+- GSAP (GreenSock) as an alternative or supplement for complex timeline-based animations, scroll-pinning, or parallax effects that require frame-level precision.
+- next/image for responsive image delivery with automatic format optimization, blur placeholders, and priority loading for above-the-fold images.
+- Lenis or Locomotive Scroll for a smooth, momentum-based scrolling experience that feels polished and controlled (optional -- adds a premium feel but increases complexity).
+- MDX or a headless CMS (Sanity, Contentful) for project content management, allowing rich text, embedded media, and easy content updates without code changes.
+- Resend or Nodemailer with a Next.js API route for handling contact form submissions server-side.
+
+## Expected Output
+
+### Component Structure
+
+```
+Portfolio/
+  Layout/
+    PortfolioLayout.tsx
+    Navigation/
+      Navbar.tsx
+      FullScreenMenu.tsx
+      MenuLink.tsx
+    Footer.tsx
+    PageTransition.tsx
+    CustomCursor.tsx (optional)
+    SmoothScroll.tsx (optional)
+  Home/
+    HomePage.tsx
+    HeroSection/
+      HeroSection.tsx
+      AnimatedName.tsx
+      ScrollIndicator.tsx
+    ProjectShowcase/
+      ProjectShowcase.tsx
+      ProjectCard.tsx
+      ProjectGrid.tsx
+    AboutSection/
+      AboutSection.tsx
+      SkillsGrid.tsx
+      SkillCategory.tsx
+    Testimonials/
+      Testimonials.tsx
+      TestimonialQuote.tsx
+    ContactSection/
+      ContactSection.tsx
+      ContactForm.tsx
+      SocialLinks.tsx
+  ProjectDetail/
+    ProjectDetailPage.tsx
+    ProjectHero.tsx
+    ProjectMeta.tsx
+    ProjectNarrative.tsx
+    ProjectGallery.tsx
+    ImageLightbox.tsx
+    ProjectNavigation.tsx
+  Shared/
+    RevealOnScroll.tsx
+    BlurImage.tsx
+    SectionHeading.tsx
+    Button.tsx
+```
+
+### Page Sections
+
+1. Navigation -- minimal, fixed or overlay-based with smooth scroll links
+2. Hero / Introduction -- full-viewport identity statement with display typography
+3. Selected Work -- curated project grid with rich hover interactions
+4. Project Detail -- narrative case study with image gallery and metadata
+5. About -- biography, portrait, skills, and resume download
+6. Testimonials -- pull-quote endorsements from clients or colleagues
+7. Contact -- form, email, social links, and location
+8. Footer -- copyright, back-to-top, optional colophon
+
+### Code Requirements
+
+- Use TypeScript with strict mode; define interfaces for Project (title, slug, coverImage, category, year, client, description, gallery, techStack), Testimonial, and Skill types.
+- Implement dynamic routing for project detail pages (`/work/[slug]`) with static generation (generateStaticParams) for all project entries.
+- Project data should be stored in a structured data file (`data/projects.ts`) or fetched from a headless CMS, decoupled from the UI components.
+- All animations must be wrapped in a motion-safe check: provide instant rendering as the default and layer animations on top for users without motion preferences.
+- Image components must handle loading states gracefully with blur placeholders and must specify explicit width/height or aspect-ratio to prevent cumulative layout shift.
+- The contact form must validate on the client side before submission and handle the server response (success/error) with appropriate UI feedback.
+- Typography scale must be defined in the Tailwind config as a custom set of font-size/line-height/letter-spacing combinations for consistent usage across components.
+- Provide a complete sample dataset with at least 4 detailed project entries (including gallery images, descriptions, and metadata) so the portfolio renders as a fully realized site on first build.
+- Ensure Lighthouse scores of 90+ across all categories (Performance, Accessibility, Best Practices, SEO) with particular attention to Largest Contentful Paint on the hero section.
+
+
+---
+
+# Multi-Page Routing & Navigation Prompt
+
+## Role
+
+You are a senior frontend architect specializing in client-side routing, URL-driven navigation, and multi-page application architecture. You have deep expertise in Next.js App Router, file-based routing conventions, dynamic route segments, and building seamless multi-page experiences that feel instant and cohesive. You understand how proper routing transforms a collection of components into a navigable, bookmarkable, SEO-friendly application.
+
+## Task
+
+Ensure the generated website is a fully routed, multi-page application — not a single-page scroll. Every navigation link in the sidebar, navbar, or footer must resolve to a real, distinct route. Each route must render its own page with relevant content, share a persistent layout shell, and support browser back/forward navigation, direct URL access, and page refresh without breaking.
+
+## Routing Architecture
+
+### File-Based Route Structure
+
+Organize pages using the Next.js App Router convention. Every navigable section of the site must have its own route segment:
+
+```
+src/app/
+  layout.tsx              # Root layout (html, body, providers, persistent shell)
+  page.tsx                # Home / Dashboard / Landing — the default route "/"
+  loading.tsx             # Global loading fallback (optional)
+  not-found.tsx           # Custom 404 page
+
+  (dashboard)/            # Route group for dashboard pages (optional grouping)
+    layout.tsx            # Shared dashboard layout (sidebar + top bar)
+    page.tsx              # /dashboard or / — main overview
+    analytics/
+      page.tsx            # /analytics
+    users/
+      page.tsx            # /users
+      [id]/
+        page.tsx          # /users/:id — dynamic user detail
+    products/
+      page.tsx            # /products
+    orders/
+      page.tsx            # /orders
+    messages/
+      page.tsx            # /messages
+    settings/
+      page.tsx            # /settings
+
+  # For marketing / landing page sites:
+  about/
+    page.tsx              # /about
+  pricing/
+    page.tsx              # /pricing
+  blog/
+    page.tsx              # /blog
+    [slug]/
+      page.tsx            # /blog/:slug — dynamic blog post
+  contact/
+    page.tsx              # /contact
+```
+
+Adapt the route structure to match the site type. A dashboard should have routes for each sidebar nav item. A marketing site should have routes for each navbar link. An e-commerce site should have routes for categories, product detail, cart, and checkout.
+
+### Shared Layout Shell
+
+The persistent layout (sidebar, navbar, footer) must be defined in a `layout.tsx` file that wraps all child routes. When the user navigates between pages, only the page content changes — the navigation shell remains mounted and does not re-render or flash.
+
+```tsx
+// src/app/layout.tsx or src/app/(dashboard)/layout.tsx
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex min-h-screen">
+      <Sidebar />           {/* Persistent — never unmounts */}
+      <div className="flex-1">
+        <TopBar />           {/* Persistent — never unmounts */}
+        <main>{children}</main>  {/* Only this swaps on navigation */}
+      </div>
+    </div>
+  );
+}
+```
+
+### Navigation Implementation
+
+All navigation links must use the framework's client-side router — never plain `<a>` tags for internal links:
+
+- **Next.js**: Use `import Link from "next/link"` for all internal navigation. Use `usePathname()` from `next/navigation` to determine the active route and highlight the current nav item.
+- **React Router**: Use `<Link to="/path">` and `useLocation()` for active state.
+
+```tsx
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+function NavItem({ href, label, icon: Icon }) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+
+  return (
+    <Link
+      href={href}
+      className={isActive ? "bg-primary/15 text-primary" : "text-muted-foreground"}
+    >
+      <Icon className="w-5 h-5" />
+      <span>{label}</span>
+    </Link>
+  );
+}
+```
+
+### Route Content Requirements
+
+Every route page must contain meaningful, relevant content — not a placeholder or "coming soon" message. Each page should:
+
+1. **Have a clear page title** displayed in the page header and in the document `<title>` via metadata.
+2. **Render real UI components** appropriate to the page purpose — tables, charts, forms, card grids, or content sections using mock data.
+3. **Share the same design system** as every other page — same glass panels, colors, typography, and component styles.
+4. **Include page-level metadata** for SEO:
+
+```tsx
+// Each page.tsx should export metadata
+export const metadata = {
+  title: "Analytics | AI Dashboard",
+  description: "View detailed analytics and AI model performance metrics.",
+};
+```
+
+### Dynamic Routes
+
+For pages that represent individual items (user profiles, blog posts, product details), use dynamic route segments:
+
+```tsx
+// src/app/users/[id]/page.tsx
+export default function UserDetailPage({ params }: { params: { id: string } }) {
+  const user = getUserById(params.id);  // From mock data
+  return <UserProfile user={user} />;
+}
+```
+
+Generate mock data for at least 3–5 dynamic items so the routes are functional.
+
+### Active Navigation State
+
+The navigation component must visually indicate which route is currently active. This means:
+
+- The current nav item has a highlighted background, accent color, or active indicator (left border, underline, bold text).
+- Nested routes should also highlight their parent nav item (e.g., `/users/123` highlights the "Users" nav link).
+- Use `pathname.startsWith(href)` for parent-matching logic on routes with children.
+
+```tsx
+const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
+```
+
+### Loading and Error States
+
+Each route should gracefully handle loading and error conditions:
+
+- Add `loading.tsx` files to show skeleton UI or a spinner while page content loads.
+- Add `error.tsx` files with an error boundary and a retry button.
+- Add a `not-found.tsx` at the root for unmatched URLs — styled to match the site design.
+
+### Browser Navigation Support
+
+The routing implementation must fully support:
+
+- **Back / Forward buttons**: Browser history works correctly across all page navigations.
+- **Direct URL access**: Every route is directly accessible via its URL (e.g., typing `/analytics` in the address bar loads the analytics page correctly).
+- **Page refresh**: Refreshing any route reloads that specific page, not the home page.
+- **Bookmarking**: Any route URL can be bookmarked and revisited.
+- **Link sharing**: Route URLs can be shared and opened by other users.
+
+## Responsive Routing
+
+On mobile, navigation may collapse into a hamburger menu, bottom tab bar, or slide-out drawer. Regardless of the navigation pattern, all routes must remain accessible and functional:
+
+- Mobile hamburger / drawer menus close automatically after a navigation link is tapped.
+- Bottom tab bars highlight the active route.
+- Breadcrumbs (if present) update to reflect the current route hierarchy.
+
+## Code Requirements
+
+- Use `Link` components (not `<a>` tags) for all internal navigation to enable client-side routing without full page reloads.
+- Use `usePathname()` (Next.js) or `useLocation()` (React Router) for active state detection.
+- Define each route's page in its own file — do not conditionally render pages based on state within a single component.
+- Each page file should be a self-contained module that imports its own components and data.
+- Do not use hash-based routing (`/#section`) as a substitute for real routes. In-page anchor scrolling for sections within a single page is acceptable, but every top-level nav link must point to a distinct route.
+- Wrap route-specific data fetching in the page component or a server component — do not fetch all data in the root layout.
+
+
+---
+
+# Dark UI Prompt
+
+## Role
+
+You are a senior frontend designer and UI engineer specializing in dark-theme-first design systems. You have deep expertise in crafting interfaces where darkness is not an afterthought or inversion of a light theme, but the foundational design decision around which every color, contrast ratio, shadow, and interactive state is built. Your work draws from the design principles of tools like Linear, Raycast, Arc Browser, and Vercel --- products that prove dark interfaces can be beautiful, professional, and effortlessly usable.
+
+## Task
+
+Design and build a dark-theme-first website UI that uses darkness as a canvas for precision, focus, and visual impact. The interface should feel premium and refined --- not heavy or gloomy but rather crisp, clear, and energizing. Strategic use of vibrant accent colors against the dark foundation should create moments of visual electricity that guide attention and convey interactive purpose. Every design decision must be made with the dark surface as the starting point, not adapted from a light design.
+
+## Design Goals
+
+- **Darkness as foundation, not filter**: The dark background is the primary design material. Colors, typography, spacing, and hierarchy must all be designed for dark surfaces from the ground up --- not inverted from a light theme.
+- **Precision through contrast**: High contrast between the dark background and content creates sharp, clear interfaces. Every element should feel crisply defined against the dark canvas.
+- **Vibrant accent energy**: One or two vivid accent colors should electrify the interface --- drawing attention to interactive elements, status indicators, and calls to action with controlled bursts of color.
+- **Layered surface elevation**: Use progressively lighter shades of dark (not shadows) to establish elevation hierarchy. Higher-elevation surfaces are slightly lighter, creating a clear spatial system.
+- **Eye comfort and reduced fatigue**: The interface should be comfortable for extended use. Avoid pure white text on pure black backgrounds. Use off-blacks and off-whites to reduce eye strain while maintaining excellent contrast.
+
+## UI Requirements
+
+- A dark background that is never pure black (`#000000`) --- use a richly tinted dark tone that has subtle color character (warm, cool, or neutral).
+- A clear elevation system with at least 4 surface levels: (1) base background, (2) raised surfaces (cards, sidebars), (3) elevated surfaces (dropdowns, modals), (4) highest elevation (tooltips, popovers). Each level should be 3--6% lighter than the one below.
+- A sticky navigation bar at the highest or second-highest elevation, with clear separation from the content below via a subtle border or elevation shift --- never a heavy shadow.
+- Hero section with a dramatic headline, optional gradient text treatment using the accent colors, and a vibrant CTA button that is the brightest element on the screen.
+- Content cards with raised-surface backgrounds, subtle 1px borders using a lighter shade of the base color at low opacity, and generous padding.
+- Status and category indicators using vibrant color dots, pills, or badges that pop against the dark surface.
+- Interactive elements (buttons, links, inputs) must have distinctly visible hover, focus, and active states. On dark backgrounds, hover states typically lighten the element or add a subtle glow rather than darkening.
+- Text hierarchy using opacity and weight rather than color variation: primary text at 90--95% white, secondary at 60--70%, tertiary/disabled at 35--45%.
+- Borders and dividers should use white at very low opacity (`rgba(255, 255, 255, 0.08)` to `rgba(255, 255, 255, 0.12)`) rather than gray color values, so they adapt naturally to any dark surface color.
+- Code blocks or technical content areas with a slightly darker inset background and syntax highlighting optimized for dark environments.
+
+## Color Palette Guidelines
+
+The palette architecture for dark UI requires precise calibration of dark surface tones, text opacities, and accent vibrancy.
+
+### Surface Colors (Elevation System)
+- **Level 0 - Base**: `#09090B` (near-black zinc), `#0C0A09` (warm stone), or `#0A0A1A` (deep navy). Pick one with intentional undertone.
+- **Level 1 - Raised**: Base + 4% lightness --- e.g., `#141416`, `#18181B`, or `#1C1C2E`.
+- **Level 2 - Elevated**: Base + 8% lightness --- e.g., `#1F1F23`, `#27272A`, or `#2A2A3C`.
+- **Level 3 - Highest**: Base + 12% lightness --- e.g., `#2C2C30`, `#3F3F46`, or `#38384A`.
+
+### Text Colors
+- **Primary text**: `#FAFAFA` or `#F4F4F5` (never pure `#FFFFFF` --- it is too harsh).
+- **Secondary text**: `#A1A1AA` (zinc-400 equivalent).
+- **Tertiary/muted text**: `#71717A` (zinc-500 equivalent).
+- **Disabled text**: `#52525B` (zinc-600 equivalent).
+
+### Accent Colors (choose one primary + one optional secondary)
+- **Electric violet**: `#8B5CF6` (primary actions) with lighter tint `#A78BFA` for hover.
+- **Vivid cyan**: `#06B6D4` (primary) with `#22D3EE` for hover.
+- **Hot orange**: `#F97316` (primary) with `#FB923C` for hover.
+- **Acid green**: `#22C55E` (primary) with `#4ADE80` for hover.
+- **Electric blue**: `#3B82F6` (primary) with `#60A5FA` for hover.
+
+### Functional Colors
+- **Success**: `#22C55E` (green-500).
+- **Warning**: `#EAB308` (yellow-500).
+- **Error**: `#EF4444` (red-500).
+- **Info**: `#3B82F6` (blue-500).
+
+### Borders and Dividers
+- Standard border: `rgba(255, 255, 255, 0.08)`.
+- Emphasized border: `rgba(255, 255, 255, 0.12)`.
+- Active/focus border: Accent color at 50--70% opacity.
+
+## Typography
+
+- **Heading font**: Inter, Geist, or Cal Sans --- modern, sharp sans-serifs that render crisply on dark backgrounds. Weight: semibold (600) for large headings, medium (500) for smaller headings.
+- **Body font**: Inter, Geist, or system font stack at 14px--16px base size with 1.6--1.7 line-height. Weight: regular (400). Consider using `font-feature-settings: 'cv02', 'cv03', 'cv04'` with Inter for a more distinctive feel.
+- **Monospace**: Geist Mono, JetBrains Mono, or Berkeley Mono for code blocks and technical values. Use slightly smaller size (13px--14px) than body text.
+- **Anti-aliasing**: Apply `-webkit-font-smoothing: antialiased` and `-moz-osx-font-smoothing: grayscale` --- this is critical on dark backgrounds where subpixel rendering can cause color fringing.
+- **Gradient text**: For hero headlines, consider `background: linear-gradient(to right, #FFFFFF, #A1A1AA)` with `background-clip: text` for a sophisticated fading headline effect, or use accent gradient for impact.
+
+## Technology Suggestions
+
+- **Framework**: Next.js 14+ (App Router) with `darkMode: 'class'` or `'media'` in Tailwind configuration.
+- **Styling**: Tailwind CSS with an extended dark color scale in the config. Define custom color tokens for each surface level, text opacity tier, and accent shade.
+- **CSS custom properties**: Define the surface elevation scale, accent colors, and border opacities as CSS variables on `:root` for easy theming and future light-mode support.
+- **Animations**: Framer Motion for entrance animations and micro-interactions. On dark UIs, subtle glow transitions and brightness shifts are more impactful than positional movement.
+- **Icons**: Lucide React or Radix Icons at 1.5px stroke width. On dark backgrounds, outline icons with the secondary text color (`#A1A1AA`) work best.
+- **Component library base**: Consider Radix UI primitives or shadcn/ui as an unstyled foundation --- their dark mode support is excellent and they handle focus management and accessibility.
+- **Syntax highlighting**: Shiki with a dark theme (e.g., `vitesse-dark`, `one-dark-pro`, or a custom theme matching the site palette).
+
+## Expected Output
+
+### Component Structure
+
+Generate the following components, each designed dark-first:
+
+- `Navbar.tsx` --- Sticky navigation at Level 2 elevation with bottom border, logo, nav links (secondary text color, white on hover), accent-colored CTA button, and optional command palette trigger (`Cmd+K` style pill).
+- `Hero.tsx` --- Full-width section on Level 0 base with gradient or large headline, accent-colored or gradient-text treatment, subtitle in secondary text color, vibrant primary CTA button, and subtle secondary action.
+- `FeatureGrid.tsx` --- Grid of feature cards on Level 1 surfaces with accent-colored icon containers, white title text, secondary description text, and hover state that lightens the card background.
+- `StatsSection.tsx` --- A row of key statistics with large monospace numbers, accent-colored labels or underlines, and Level 1 background cards.
+- `CodeBlock.tsx` --- Syntax-highlighted code display component with Level 0 or sub-Level 0 (slightly darker) background, line numbers in tertiary text, copy button, and language badge.
+- `TestimonialCarousel.tsx` --- Carousel or grid of testimonial cards on Level 1 with quote text in primary color, attribution in secondary, and optional accent-colored quotation mark decoration.
+- `CTABanner.tsx` --- High-impact call-to-action section with subtle gradient background using accent color at low opacity, vibrant button, and compelling headline.
+- `Footer.tsx` --- Level 1 background footer with subtle top border, column layout for links in secondary text color, social icons, and accent-colored hover states.
+- `Badge.tsx` --- Small utility component for status labels, categories, and tags with configurable accent colors and pill or rounded-rectangle shapes.
+
+### Code Requirements
+
+- TypeScript with a well-defined surface elevation type system and color token types.
+- Tailwind config must define the complete dark color scale as custom colors (e.g., `surface-0`, `surface-1`, `surface-2`, `surface-3`, `text-primary`, `text-secondary`, `text-tertiary`).
+- CSS custom properties must be used for all surface and accent colors, enabling theme switching without Tailwind recompilation.
+- Apply `antialiased` font smoothing globally in the root layout --- this is non-negotiable for dark UIs.
+- All border colors must use `rgba(255, 255, 255, opacity)` rather than named gray values to maintain consistency across surface levels.
+- Hover states should lighten elements (increase background lightness by 4--6%) rather than darken them. On dark backgrounds, darkening is invisible.
+- Focus rings must use the accent color with a subtle glow (`box-shadow: 0 0 0 2px accent-color`) rather than a browser default outline.
+- Images and illustrations should be optimized for dark backgrounds --- consider applying `brightness(0.9) contrast(1.1)` filter to images to prevent them from glowing too intensely.
+- The design should remain beautiful in dark mode only --- no light mode toggle is required unless specifically requested.
+
+### Design Explanation
+
+Accompany the code with a comprehensive design rationale (5--6 paragraphs) covering:
+
+1. Why dark-first is different from dark-as-inversion --- the design decisions that change fundamentally when darkness is the starting point rather than an alternative.
+2. The elevation system --- how surface lightness replaces shadows as the primary depth indicator in dark interfaces, and how the 4-level system was calibrated.
+3. Accent color strategy --- why the chosen accent(s) were selected, how vibrancy is controlled to avoid overwhelming the dark canvas, and how accent usage is rationed across the interface.
+4. Typography on dark surfaces --- the specific rendering challenges (subpixel fringing, perceived weight shift, contrast fatigue) and how they are addressed through font smoothing, color tuning, and weight adjustments.
+5. Interaction design in the dark --- how hover states, focus indicators, and active states are fundamentally different on dark backgrounds and why light-shift is used instead of dark-shift.
+6. Accessibility and comfort --- how the interface avoids common dark-mode pitfalls (pure black backgrounds, pure white text, insufficient contrast for secondary elements, invisible borders) and remains comfortable for extended use.
+
+
+---
+
+# Vaporwave UI Prompt
+
+## Role
+
+You are a senior frontend designer and UI engineer specializing in vaporwave and synthwave-inspired design systems. You are deeply versed in the visual culture of the 1980s and 1990s --- neon-lit shopping malls, early Macintosh interfaces, VHS aesthetics, Japanese city pop, and the dreamlike nostalgia of consumer capitalism filtered through an ironic, artistic lens. You understand how to channel the vaporwave movement's signature blend of retro-futurism, pastel surrealism, and digital nostalgia into functional, navigable web interfaces that feel like a fever dream of a 1990s internet that never existed.
+
+## Task
+
+Design and build a vaporwave-themed website UI that transports users into a retro-futuristic digital dreamscape. The interface should layer sunset gradients, chrome metallic text, grid perspective floors, VHS distortion effects, and nostalgic UI callback elements (Windows 95 windows, early Mac icons) into a cohesive aesthetic experience. Roman columns and Greek statue motifs should appear as decorative patterns, palm tree silhouettes frame key sections, and the overall color palette should drown in pastel pink, electric purple, and hot teal. Despite the heavy aesthetic commitment, the interface must remain navigable, readable, and responsive across devices.
+
+## Design Goals
+
+- **Nostalgic surrealism**: The interface should feel like a half-remembered dream of 1990s consumer technology --- familiar enough to trigger nostalgia, distorted enough to feel otherworldly. Every visual choice should walk the line between sincere retro homage and ironic reinterpretation.
+- **Gradient saturation**: Gradients are the lifeblood of vaporwave. Sunset gradients (pink to orange to purple), chrome gradients (silver to white to silver), and pastel washes should cover every viable surface. The interface should feel drenched in color.
+- **Retro-digital texture**: VHS scan lines, pixel art accents, dithering patterns, and early-digital artifacts should add texture and period authenticity without overwhelming content readability.
+- **Typography as spectacle**: Display fonts should be dramatic --- chrome-effect serif headlines, pixel bitmap accents, and Japanese decorative text elements should make typography a visual centerpiece rather than a neutral content vessel.
+- **Layered anachronism**: Combine visual references from different decades (80s neon, 90s desktop UI, Greek classical elements, Japanese text) into a coherent collage that feels intentionally eclectic rather than chaotic.
+
+## UI Requirements
+
+- Full-viewport hero section with an animated sunset gradient background (pink `#ff71ce` to orange `#ff9770` to purple `#7b2ff7` to deep blue `#0a0a2e`), a chrome-effect headline with metallic `linear-gradient` text treatment, and a perspective grid floor element receding toward a vanishing point at the bottom.
+- Perspective grid floor created with CSS `linear-gradient` on a `transform: perspective(500px) rotateX(60deg)` element, using thin lines in neon pink or cyan on a dark or transparent base, fading with a gradient mask at the edges. This grid should appear behind hero content as a signature vaporwave motif.
+- VHS scanline effect as a global or section-specific overlay: horizontal `repeating-linear-gradient` at 2--3px intervals with slight opacity variation, plus an optional slow vertical "tracking" animation (a bright horizontal bar that drifts up or down periodically).
+- Navigation styled as a retro window title bar --- a colored bar with embossed-style text, optional close/minimize/maximize dots, and a slightly pixelated or bitmap-style font for nav labels.
+- Content cards styled as retro OS windows: a colored title bar (gradient fill, dark text, window control dots), a 2--3px raised border with highlight/shadow edges simulating the beveled look of Windows 95/classic Mac OS, and a light or white content area with subtle pixel-grid texture.
+- Chrome/metallic text effect for headings: `linear-gradient(180deg, #e8e8e8 0%, #ffffff 25%, #a0a0a0 50%, #ffffff 75%, #c0c0c0 100%)` applied via `background-clip: text`, creating a polished metal reflection appearance. Optionally animate the gradient position on hover for a glinting effect.
+- Decorative Greek/Roman elements as SVG patterns or CSS backgrounds --- column silhouettes, bust outlines, or classical arch shapes used as watermarks, section backgrounds, or card decorations at low opacity (5--15%).
+- Palm tree silhouettes as decorative elements flanking hero text or section transitions, rendered as SVG in neon pink or dark purple against sunset gradients.
+- Japanese text used decoratively (not for content) --- katakana or kanji characters as watermark backgrounds, section labels, or decorative side elements, rendered in neon colors at reduced opacity.
+- Sunset gradient stripe patterns --- horizontal bands of varying widths in the sunset palette, used as section dividers, card accents, or decorative backgrounds.
+- Buttons styled with beveled 3D borders (highlight top-left, shadow bottom-right) mimicking classic OS button aesthetics, with a gradient fill and a "pressed" active state that inverts the bevel direction.
+- At least one section featuring pixel art icons or 8-bit style decorative elements, paying homage to early digital graphics.
+
+## Color Palette Guidelines
+
+A saturated, warm palette dominated by sunset pinks and purples with cool teal and chrome accents. The overall impression should be "tropical sunset viewed through a CRT monitor."
+
+- **Primary gradient (Sunset)**: Hot pink `#ff71ce` to warm orange `#ff9770` to golden peach `#ffd700` --- the signature vaporwave sunset, used for hero backgrounds, section washes, and decorative elements.
+- **Secondary gradient (Night)**: Deep purple `#7b2ff7` to midnight blue `#0a0a2e` to black `#0d0d0d` --- the cooler counterpart, used for deeper sections, footer, and contrast areas.
+- **Pastel pink**: Soft pink `#ffb8d0` or `#f5c2e7` --- the dominant surface color for cards, badges, and UI backgrounds. The most recognizable vaporwave hue.
+- **Pastel purple**: Light lavender `#d0b3ff` or `#c4a7e7` --- secondary surface color and text accent.
+- **Electric teal**: Bright teal `#01cdfe` or `#00d4aa` --- for links, active states, and accent borders. The cool counterpoint to the warm pinks.
+- **Chrome silver**: Metallic gradient from `#e8e8e8` through `#ffffff` to `#a0a0a0` --- for headline text effects and decorative chrome elements.
+- **Retro window colors**: Classic title bar gradients (blue `#0055aa` to light blue `#3399ff` for Windows-style, or gray `#c0c0c0` with colored stripes for Mac-style), beveled border highlights (`#ffffff`) and shadows (`#808080`).
+- **Text - primary**: Deep purple-black `#1a0a2e` or dark navy `#0d0d2e` on light backgrounds. White `#ffffff` or soft pink `#ffddee` on dark backgrounds.
+- **Text - secondary**: Muted purple `#7a6a9e` on light surfaces, desaturated pink `#c0a0b0` on dark surfaces.
+- **Neon accents**: Hot magenta `#ff00ff`, electric blue `#0000ff`, or neon green `#00ff00` --- used extremely sparingly for pixel accents, retro icon outlines, or glowing highlights.
+
+## Typography
+
+- **Display/heading font**: A serif display face with chrome treatment --- Playfair Display, Cormorant Garamond, or Libre Baskerville. Applied with the metallic gradient `background-clip: text` effect. Alternatively, use a retro display font like Press Start 2P or VT323 for a more pixelated aesthetic on secondary headings.
+- **Body font**: Space Grotesk, DM Sans, or IBM Plex Sans at 15px--17px base size with 1.6--1.7 line-height. A clean sans-serif to ensure readability amid the heavy visual aesthetic. Weight: regular (400) to medium (500).
+- **Pixel/bitmap font**: Press Start 2P, VT323, or Silkscreen for retro UI elements (window title bars, badges, stat displays, navigation labels). Use at small sizes (11px--14px) for authenticity.
+- **Japanese decorative text**: Noto Sans JP or M PLUS Rounded 1c for decorative Japanese characters. Used as visual texture only --- never for critical content. Apply at large sizes with low opacity.
+- **Chrome text treatment**: Apply `background: linear-gradient(180deg, #e8e8e8 0%, #fff 25%, #a0a0a0 50%, #fff 75%, #c0c0c0 100%)` with `background-clip: text` and `-webkit-text-fill-color: transparent`. Add `text-shadow: 0 2px 4px rgba(0,0,0,0.3)` for depth. Optionally animate `background-position` on hover.
+- **Size hierarchy**: Display headlines large and dramatic (`clamp(3rem, 8vw, 6rem)`), body text moderate, pixel-font labels small. The contrast between ornate display type and clean body type creates the aesthetic tension vaporwave thrives on.
+
+## Technology Suggestions
+
+- **Framework**: Next.js 14+ or React 18+ --- component encapsulation for managing the many decorative layers, gradient systems, and retro UI patterns.
+- **Styling**: Tailwind CSS with extensive custom config: sunset gradient utilities, chrome text utilities, retro bevel shadow system, and custom color tokens for the vaporwave palette.
+- **Animations**: CSS `@keyframes` for gradient cycling, VHS tracking bar drift, and chrome text glint. Framer Motion for scroll-triggered reveals and parallax effects on the perspective grid.
+- **Retro window system**: A reusable CSS component system for Windows 95/classic Mac styled containers --- beveled borders, title bars, window control dots --- built as a self-contained design token set.
+- **SVG assets**: Custom SVG illustrations for Greek column silhouettes, palm tree outlines, and classical bust watermarks. Inline SVG for styling control (fill, opacity, color animation).
+- **Pixel art**: CSS-only pixel art for small decorative elements (using `box-shadow` grids) or imported SVG/PNG pixel sprites for icons.
+- **Fonts**: Google Fonts (Playfair Display, Press Start 2P, Space Grotesk, Noto Sans JP) with `font-display: swap`.
+- **Audio** (optional): A looped vaporwave/synthwave ambient track with a visible, user-controlled play/pause toggle. Never autoplay.
+
+## Expected Output
+
+### Component Structure
+
+Generate the following components, each channeling the vaporwave visual language:
+
+- `VaporNavbar.tsx` --- Navigation styled as a retro OS window title bar with colored gradient bar, embossed text labels in pixel font, window control dots (red/yellow/green circles), and a mobile menu styled as a retro dropdown window.
+- `SunsetHero.tsx` --- Full-viewport hero with an animated sunset gradient background (slow hue cycling), perspective grid floor element receding toward a vanishing point, palm tree SVG silhouettes flanking the edges, a chrome-effect serif headline, subtitle in clean sans-serif, and a beveled retro-style CTA button.
+- `PerspectiveGrid.tsx` --- Reusable component rendering the iconic vaporwave perspective grid: CSS `linear-gradient` lines on a `transform: perspective() rotateX()` plane, with configurable line color, spacing, and fade-out mask. Positioned behind content.
+- `RetroWindowCard.tsx` --- Card component styled as a retro OS window: colored gradient title bar with window dots and title text in pixel font, beveled 3D border system (highlight top-left edge, shadow bottom-right edge), and a content area with optional pixel-grid texture background.
+- `ChromeText.tsx` --- Reusable component that applies the metallic chrome gradient text effect to any heading, with configurable gradient stops, optional hover glint animation, and text-shadow depth.
+- `VaporButton.tsx` --- Button with beveled 3D border (raised at rest, pressed on active), gradient fill from the sunset palette, pixel-font label, and a satisfying bevel-inversion animation on click.
+- `VHSOverlay.tsx` --- A global or section-level overlay component with horizontal scanlines, optional slow-drifting tracking bar, and subtle color aberration at the edges. All set to `pointer-events: none` and `aria-hidden="true"`.
+- `SunsetStripes.tsx` --- Decorative component rendering horizontal bands of varying widths in sunset palette colors, used as section dividers or card accents.
+- `Features.tsx` --- Grid of `RetroWindowCard` components displaying features with pixel-art-style icons, titles, and descriptions. Each window card has a different title bar color.
+- `Gallery.tsx` --- A section showcasing content in retro window frames, with Greek statue or classical bust SVG watermarks as decorative backgrounds, and Japanese text as subtle side labels.
+- `Testimonials.tsx` --- Quote cards with sunset gradient backgrounds, chrome-text pull quotes, and palm-tree decorative accents.
+- `Footer.tsx` --- Dark gradient footer (purple to midnight) with the perspective grid as a background element, pixel-font link labels, sunset gradient divider at the top, and Japanese decorative text as a watermark.
+
+### Code Requirements
+
+- TypeScript with well-defined types for retro window variants (`'win95' | 'macClassic' | 'custom'`), gradient presets (`'sunset' | 'night' | 'chrome'`), and bevel intensity levels.
+- Tailwind CSS extended with custom gradient utilities (`bg-sunset`, `bg-night`, `bg-chrome-text`), bevel shadow system (`shadow-bevel-raised`, `shadow-bevel-pressed`), and vaporwave color tokens.
+- CSS custom properties for the sunset gradient palette (`--vapor-pink`, `--vapor-orange`, `--vapor-purple`, `--vapor-teal`), bevel colors (`--bevel-highlight`, `--bevel-shadow`), and chrome gradient stops.
+- The perspective grid must use `transform: perspective() rotateX()` with a CSS gradient mask (`mask-image: linear-gradient(to top, transparent 0%, black 40%)`) to fade naturally at the edges. Use `will-change: transform` and `contain: strict` for GPU compositing.
+- Chrome text gradients must include a solid `color` fallback for browsers or assistive technologies that do not render `background-clip: text`. Use `@supports (background-clip: text)` or `@supports (-webkit-background-clip: text)`.
+- VHS overlay must be purely decorative: `pointer-events: none`, `user-select: none`, `aria-hidden="true"`, and `z-index` managed to sit above content but below interactive overlays.
+- Beveled borders must use the classic technique: `border-top` and `border-left` in highlight color (`#ffffff` or `rgba(255,255,255,0.6)`), `border-bottom` and `border-right` in shadow color (`#808080` or `rgba(0,0,0,0.3)`), with active/pressed state inverting the colors.
+- Respect `prefers-reduced-motion`: stop gradient animations, freeze VHS tracking bar, disable chrome glint hover, and present a static but still-colorful vaporwave aesthetic.
+- Responsive: On mobile, hide the perspective grid (too GPU-intensive on small devices), simplify palm tree decorations, stack retro window cards vertically, and ensure pixel fonts are legible at small viewport sizes.
+- Ensure text readability on gradient backgrounds: all text on sunset gradients must have either a semi-opaque backdrop or sufficient text-shadow to maintain WCAG AA contrast.
+
+### Design Explanation
+
+Accompany the code with a nostalgic, culturally-aware design narrative (4--5 paragraphs) covering:
+
+1. The vaporwave cultural context --- how the aesthetic emerged from internet art, electronic music, and ironic commentary on consumer capitalism, and why its visual language (sunset gradients, Greek statues, Japanese text, retro tech) creates such a potent emotional cocktail of nostalgia, irony, and beauty.
+2. The retro-digital material system --- how beveled borders, pixel fonts, and window-frame UI patterns recreate the tactile feel of 1990s operating systems, and why this deliberate anachronism creates a sense of comfort and playful rebellion against modern flat design.
+3. The gradient and color strategy --- how the sunset palette (pink-orange-purple) creates the signature vaporwave warmth, how chrome metallic text adds luxury and spectacle, and how the careful balance of warm and cool tones prevents the palette from becoming monotonous.
+4. Typography as cultural artifact --- how the mix of serif chrome headlines, clean sans-serif body text, pixel bitmap labels, and decorative Japanese characters creates a typographic collage that mirrors the aesthetic's cultural sampling, and how this hierarchy keeps content readable despite the variety.
+5. Performance and accessibility --- how heavy decorative elements (perspective grid, VHS overlay, gradient animations) are optimized for smooth rendering, how the strongly-colored palette requires careful contrast management, and how the retro aesthetic degrades gracefully on modern mobile devices.
+
+
+---
+
+# Hover Effects Prompt
+
+## Role
+
+You are a senior frontend designer and interaction specialist with deep expertise in micro-interactions and hover state design. You create hover effects that feel responsive, polished, and purposeful — enhancing usability without sacrificing performance.
+
+## Task
+
+Design and implement a comprehensive collection of reusable hover effects for common UI elements including buttons, cards, images, links, navigation items, and icons. Each effect should be smooth, performant, and accessible.
+
+## Animation Goals
+
+- Create hover effects that feel instant and responsive (under 200ms for simple transitions)
+- Ensure all animations use GPU-accelerated properties (transform, opacity) where possible
+- Provide visual feedback that reinforces the interactive nature of elements
+- Maintain consistency across the design system while offering variety
+- Support both mouse hover and focus states for keyboard accessibility
+
+## Hover Effect Catalog
+
+### Card Hover Effects
+
+#### Lift Effect
+Card rises with a subtle shadow increase, creating a sense of elevation. Use `transform: translateY(-4px)` paired with an expanding `box-shadow`. Ideal for product cards, blog post cards, and feature cards.
+
+#### Glow Effect
+A soft colored glow appears around the card border on hover. Use `box-shadow` with a spread radius matching the brand color at low opacity. Best for dark-themed UIs and highlight cards.
+
+#### Border Reveal
+A gradient or solid border animates in from one corner, tracing the card perimeter. Use pseudo-elements with `clip-path` or width/height transitions. Great for portfolio items and testimonial cards.
+
+#### Content Shift
+Inner content subtly rearranges — a hidden CTA button slides in, description text expands, or an overlay appears. Use `max-height` transitions or transform-based reveals.
+
+### Button Hover Effects
+
+#### Fill Sweep
+Background color sweeps from left to right (or any direction) using a pseudo-element with `transform: scaleX()`. The text color inverts as the fill passes beneath it.
+
+#### Ripple Effect
+A radial ripple emanates from the cursor position on hover. Implemented with a pseudo-element and `radial-gradient` or JavaScript for cursor-tracking accuracy.
+
+#### Underline Grow
+An underline expands from center outward or from left to right beneath the button text. Uses `transform: scaleX()` on a pseudo-element for smooth GPU-accelerated animation.
+
+#### Magnetic Pull
+Button subtly moves toward the cursor as it approaches, creating a magnetic feel. Requires JavaScript for cursor position tracking and `transform: translate()`.
+
+### Image Hover Effects
+
+#### Zoom and Pan
+Image scales up slightly (1.05–1.1x) within its container using `overflow: hidden` and `transform: scale()`. Optionally pans in the direction of the cursor.
+
+#### Overlay Fade
+A semi-transparent overlay fades in over the image with text, icons, or CTAs. Use `opacity` transitions on an absolutely positioned overlay element.
+
+#### Grayscale to Color
+Image displays in grayscale by default and transitions to full color on hover using `filter: grayscale()`. Effective for team photos and portfolio grids.
+
+#### Parallax Tilt
+Image tilts subtly based on cursor position within the element, creating a 3D parallax effect. Requires JavaScript for cursor tracking and `transform: perspective() rotateX() rotateY()`.
+
+### Link and Navigation Hover Effects
+
+#### Sliding Underline
+Underline slides in from left or expands from center using `transform: scaleX()` with `transform-origin`. Standard for navigation links.
+
+#### Background Highlight
+A subtle background color fades in behind the link text. Use `background-color` with transition or a pseudo-element for more control over shape and position.
+
+#### Text Glitch
+Characters briefly scramble or shift on hover before resolving to the correct text. Requires JavaScript for character manipulation with CSS transitions for positioning.
+
+## Technical Requirements
+
+- All transitions must use `will-change` or `transform`/`opacity` for GPU acceleration
+- Transition durations between 150ms and 300ms for most effects
+- Use `cubic-bezier` easing for natural-feeling motion (avoid linear)
+- No layout-triggering properties in transitions (avoid animating width, height, top, left, margin, padding)
+- All hover states must have equivalent `:focus-visible` states for keyboard users
+- Effects must not cause content layout shifts (CLS)
+
+## Technology Suggestions
+
+- CSS Transitions and Animations
+- CSS Custom Properties for theming hover colors and durations
+- Framer Motion (for React-based implementations)
+- Tailwind CSS with custom utilities
+- Vanilla JavaScript for cursor-tracking effects
+
+## Expected Output
+
+### Component Structure
+
+```
+components/
+  hover/
+    HoverCard.jsx
+    HoverButton.jsx
+    HoverImage.jsx
+    HoverLink.jsx
+    HoverIcon.jsx
+  utils/
+    useCursorPosition.js
+    useHoverState.js
+```
+
+### Code Requirements
+
+- Each effect should be a reusable component or CSS utility class
+- Support customization through props or CSS custom properties
+- Include TypeScript types for all component props
+- Export individual effects for tree-shaking
+- Include Storybook-ready examples
+
+### Accessibility
+
+- All hover effects must have matching `:focus-visible` styles
+- Respect `prefers-reduced-motion` by disabling or simplifying animations
+- Ensure sufficient color contrast in all hover states
+- Interactive elements must remain clearly identifiable in their hover state
+
+
+---
+
+# Animated Typography Prompt
+
+## Role
+
+You are a creative front-end developer and typographic motion designer. You
+specialize in bringing text to life through animation — from subtle reveals to
+dramatic kinetic typography sequences. You understand the intersection of type
+design, timing functions, and performance optimization, and you know how to make
+words move in ways that enhance meaning rather than distract from it.
+
+## Task
+
+Build a collection of animated typography components and effects that can be
+used as hero headlines, section titles, decorative elements, or interactive text
+treatments in any web project. Deliver them as a scrollable showcase page where
+each effect is demonstrated with preview and description.
+
+## Design Goals
+
+- **Meaningful motion**: Every animation should reinforce the content's message
+  or guide the reader's eye. Motion for its own sake is not the goal.
+- **Timing precision**: Easing curves, delays, and durations should feel natural
+  and intentional. Stagger patterns should create rhythm, not chaos.
+- **Cross-browser reliability**: All effects must work in modern browsers (Chrome,
+  Firefox, Safari, Edge) and degrade gracefully in older ones.
+- **Performance**: Text animations must not cause layout shifts, paint storms, or
+  jank. Stick to `transform` and `opacity` wherever possible.
+
+## Requirements
+
+### Typewriter Effects (minimum 2)
+
+1. **Classic typewriter**: Characters appear one at a time with a blinking cursor.
+   Configurable typing speed, pause between words, and optional delete-and-retype
+   for cycling through multiple phrases.
+2. **Terminal typewriter**: Green-on-black monospace text that types out with a
+   block cursor, optional command prompt prefix, and line-by-line output.
+
+### Split Text Animations (minimum 3)
+
+1. **Character split reveal**: Text splits into individual characters that animate
+   in from below (or above, left, right) with staggered delay. Each character
+   wrapped in a `<span>` with `overflow: hidden` on the parent for a clean mask.
+2. **Word split reveal**: Words animate individually — fade, slide, or scale in
+   with a stagger. Useful for hero headlines.
+3. **Line split reveal**: Multi-line text block where each line slides or fades in
+   sequentially. Lines are auto-detected or manually split via data attributes.
+
+### Gradient and Color Text (minimum 2)
+
+1. **Animated gradient text**: Text filled with a moving gradient that shifts hue
+   or position over time using `background-clip: text` and animated
+   `background-position`.
+2. **Color wipe reveal**: Text starts in one color and a color-fill sweeps across
+   it (left-to-right or per-character) to reveal a second color. Triggered on
+   scroll or on load.
+
+### Reveal and Mask Effects (minimum 3)
+
+1. **Clip-path reveal**: Text is revealed by an animating `clip-path` (rectangle
+   expanding, circle growing, or polygon morphing).
+2. **Blur-to-sharp reveal**: Text starts fully blurred (`filter: blur()`) and
+   sharpens into focus, optionally combined with a scale or slide.
+3. **Underline draw**: An animated underline or highlight marker draws itself
+   beneath or through the text when it scrolls into view. Uses a pseudo-element
+   with `scaleX` animation.
+
+### Kinetic / Decorative Effects (minimum 2)
+
+1. **Bouncing letters**: Individual characters have a physics-inspired bounce
+   animation on hover or on load, with staggered timing for a wave effect.
+2. **Scramble / decode**: Text starts as random characters and rapidly shuffles
+   through the alphabet before resolving into the final message (like a cipher
+   decoding). Implemented in JavaScript with `requestAnimationFrame`.
+
+### Technical Requirements for Each Component
+
+1. Each effect is encapsulated as a reusable function or class that accepts a
+   target element and an options object (duration, delay, easing, direction).
+2. Animations are triggered by Intersection Observer (scroll-based) by default,
+   with an option for immediate play or manual trigger.
+3. Text splitting logic handles dynamic content — do not hardcode character or
+   word spans in HTML. JavaScript splits at runtime.
+4. All effects include a `prefers-reduced-motion` fallback that shows the text
+   immediately without animation.
+5. ARIA: animated text containers use `aria-label` with the full text content so
+   screen readers announce the complete message regardless of animation state.
+
+### Showcase Page
+
+1. Full-page vertical scroll through all effects, each in its own viewport-height
+   section.
+2. Each section includes the effect name, a brief description, and the animated
+   text demo that triggers when scrolled into view.
+3. A sidebar or floating nav for jumping between effects.
+4. A controls panel to adjust speed, easing, and direction for the active effect.
+
+## Technology Suggestions
+
+| Layer         | Recommended                                              |
+|---------------|----------------------------------------------------------|
+| Markup        | Semantic HTML5, `<span>` wrapping for split text         |
+| Styling       | CSS3 keyframes, `clip-path`, `background-clip: text`     |
+| Animation     | GSAP (SplitText plugin) or custom vanilla JS splitter    |
+| Scroll Trigger| Intersection Observer or GSAP ScrollTrigger              |
+| Fonts         | Google Fonts (variable weight for kinetic emphasis)      |
+| Framework     | Vanilla JS or lightweight framework (Svelte, Lit)        |
+| Build Tool    | Vite                                                     |
+| Accessibility | `aria-label`, `prefers-reduced-motion`, `role="text"`    |
+
+## Expected Output Structure
+
+```
+text-animations/
+  index.html                  # Showcase page
+  css/
+    variables.css             # Timing tokens, color tokens, font stacks
+    base.css                  # Reset, section layout, showcase styles
+    typewriter.css            # Cursor blink, typing keyframes
+    split-text.css            # Character/word/line reveal styles
+    gradient-text.css         # Gradient fill and color wipe styles
+    reveal.css                # Clip-path, blur, underline draw
+    kinetic.css               # Bounce, scramble visual styles
+    reduced-motion.css        # Static fallbacks
+  js/
+    text-splitter.js          # Utility to split text into spans
+    typewriter.js             # Typewriter engine
+    scramble.js               # Character scramble/decode engine
+    scroll-trigger.js         # Intersection Observer wrapper
+    main.js                   # Initialize all effects, controls panel
+  assets/
+    fonts/                    # Variable fonts if self-hosted
+```
+
+## Evaluation Criteria
+
+- Visual impact and variety of text animation techniques.
+- Timing, easing, and stagger create a polished, intentional feel.
+- Text splitting is dynamic and handles arbitrary content.
+- Every effect degrades gracefully with `prefers-reduced-motion`.
+- ARIA labels ensure screen-reader users receive the full message.
+- Code is modular, well-documented, and easy to integrate into other projects.
+- All animations run at 60fps with no layout shifts.
+
+
+---
+
+# Stagger Animations Prompt
+
+## Role
+
+You are a senior motion designer and frontend developer with expertise in choreographed, sequenced animation systems. You understand the art of timing — how stagger delays, easing curves, and directional patterns create rhythm, hierarchy, and narrative in interface animation. You design orchestrated reveals that guide the eye and communicate structure.
+
+## Task
+
+Design and implement a comprehensive system of staggered and orchestrated group animations. The system should provide configurable stagger patterns for grids, lists, text, galleries, navigation, and multi-element page sections. Each pattern should support multiple directional modes, timing configurations, and trigger mechanisms.
+
+## Animation Goals
+
+- Create stagger patterns that establish visual hierarchy and guide the user's eye through content
+- Use stagger delays intentionally — too little feels simultaneous, too much feels sluggish (sweet spot: 50-100ms per item)
+- Ensure total animation sequences complete within 1-2 seconds for groups of 10-20 items
+- Support multiple stagger directions: sequential, reverse, center-out, edges-in, diagonal, random
+- Provide scroll-triggered activation via Intersection Observer for on-demand reveals
+- Make all stagger timing configurable without modifying component internals
+
+## Animation Catalog
+
+### Grid Stagger
+
+#### Directional Grid Reveal
+Items in a grid appear one by one with configurable delay and direction patterns. Each item has a base enter animation (configurable: fade, slide-up, scale, or combination) with a stagger delay calculated by position. **Direction modes**: (1) **Top-left to bottom-right diagonal**: delay = `(row + col) * staggerDelay`. (2) **Center-out radial**: delay = `Math.hypot(row - centerRow, col - centerCol) * staggerDelay`, items closest to center appear first. (3) **Row-by-row**: delay = `row * staggerDelay`, entire rows appear together. (4) **Column-by-column**: delay = `col * staggerDelay`. (5) **Random**: delay = `Math.random() * maxDelay`. Default stagger per item: 50-80ms. Base animation: `opacity: 0, transform: translateY(20px)` to `opacity: 1, transform: translateY(0)` over 400ms with `cubic-bezier(0.25, 0.1, 0.25, 1)`. Apply via CSS custom property `--stagger-delay` set by JavaScript, consumed by `animation-delay: var(--stagger-delay)`.
+
+### List Cascade
+
+#### Sequential List Reveal
+List items animate in sequence from top to bottom, each with a slight delay. Each item enters with a configurable animation: **Fade**: `opacity: 0` to `1`. **Slide-left**: `transform: translateX(-30px), opacity: 0` to `translateX(0), opacity: 1`. **Slide-right**: mirror of slide-left. **Scale-up**: `transform: scale(0.85), opacity: 0` to `scale(1), opacity: 1`. **Flip-in**: `transform: perspective(600px) rotateX(-15deg), opacity: 0` to `rotateX(0), opacity: 1`. Stagger delay: 60-100ms per item. Duration per item: 350-450ms. Easing: `cubic-bezier(0.4, 0, 0.2, 1)` for standard, `cubic-bezier(0.34, 1.56, 0.64, 1)` for bouncy. For exit animations, reverse the stagger (bottom-to-top) with slightly faster timing (80% of enter duration). Cap total visible stagger at 800ms: if items exceed ~10, reduce per-item delay proportionally.
+
+### Text Split Stagger
+
+#### Character / Word / Line Reveal
+Text content split into individual units (characters, words, or lines) with each unit animating separately in staggered sequence. **Character split**: Each character wrapped in `<span style="display: inline-block">`, parent has `overflow: hidden` per line for clean masking. Characters animate from `transform: translateY(110%)` to `translateY(0)` with stagger of 20-30ms per character. Duration: 300-400ms per character. **Word split**: Words animate similarly with 60-80ms stagger. Better for body text where per-character feels excessive. **Line split**: Auto-detect line breaks via computed layout, wrap each line, stagger by 100-150ms. Best for multi-line paragraphs. Easing for all: `cubic-bezier(0.25, 0.1, 0.25, 1)`. Optional rotation: characters rotate from 5-10deg to 0deg during entry for a playful feel. Text splitting must happen at runtime to handle dynamic content and responsive reflow.
+
+### Image Gallery Stagger
+
+#### Clip-Path / Scale Reveal
+Images in a gallery reveal with staggered animation using clip-path or scale effects. **Clip-path reveal**: Each image starts with `clip-path: inset(0 100% 0 0)` (clipped from right) and animates to `clip-path: inset(0 0% 0 0)` (fully visible). Direction alternates per row or follows a pattern. Duration: 500-700ms with `cubic-bezier(0.77, 0, 0.175, 1)`. Stagger: 80-120ms per image. **Scale reveal**: Images start at `transform: scale(1.2), opacity: 0` inside `overflow: hidden` containers, animating to `scale(1), opacity: 1`. The slight zoom creates a cinematic reveal. **Overlay wipe**: A colored overlay div slides across the image (`transform: translateX(-100%)` to `translateX(100%)`), revealing the image beneath. Two-phase: overlay enters (300ms), pauses briefly, overlay exits (300ms). Stagger each image's sequence by 100ms.
+
+### Navigation Stagger
+
+#### Menu Item Cascade
+Navigation items animate in sequence when a menu opens (mobile menu, dropdown, sidebar). Each item enters from a starting state with staggered timing. **Slide and fade**: Items start at `transform: translateX(-20px), opacity: 0` and resolve to resting position. **Scale up**: Items start at `transform: scale(0.9), opacity: 0`. Stagger delay: 40-60ms per item (navigation items are typically fewer, so faster stagger works). Duration: 250-350ms per item. Easing: `cubic-bezier(0.25, 0.1, 0.25, 1)`. On menu close, items exit in reverse order with 30ms stagger and faster duration (200ms). Total open animation for 6 items should complete within 500ms. The menu backdrop/overlay should animate first (200ms), then items stagger after a 100ms initial delay.
+
+### Counter Stagger
+
+#### Offset Counting
+Multiple counter elements (statistics section, dashboard metrics) begin counting at slightly different times. Each counter animates from 0 to its target value over 1.5-2 seconds with `ease-out` deceleration. Stagger start times by 150-200ms between counters. The count uses `requestAnimationFrame` with eased progress: `value = target * easeOutCubic(elapsed / duration)` where `easeOutCubic(t) = 1 - Math.pow(1 - t, 3)`. Format numbers with locale-appropriate separators during counting. Optional effects: digit scale pulse at completion (scale 1.0 to 1.05 to 1.0, 200ms), counter label fades in 200ms before its number starts, suffix/prefix text ("+", "%", "$") appears with the final value.
+
+### Masonry Reveal
+
+#### Viewport-Triggered Stagger
+Items in a masonry/Pinterest-style layout reveal as they enter the viewport with stagger timing based on their visual position. Use Intersection Observer with `threshold: 0.1` and `rootMargin: "0px 0px -50px 0px"` (trigger slightly before fully in view). When a batch of items enters the viewport simultaneously, calculate stagger delay based on their X position: items further left appear first (`delay = (item.offsetLeft / containerWidth) * maxStagger`). Or use column index: `delay = columnIndex * 80ms`. Base animation: `opacity: 0, transform: translateY(30px) scale(0.95)` to `opacity: 1, transform: translateY(0) scale(1)`. Duration: 450ms, `cubic-bezier(0.4, 0, 0.2, 1)`. Re-observe items when layout changes (window resize, filter change) and re-trigger reveals for newly visible items.
+
+### Orchestrated Sections
+
+#### Choreographed Section Reveal
+Multiple elements within a page section animate in a carefully choreographed sequence, creating a narrative reveal. **Timeline**: (1) **Background** (0ms): Section background color or image fades in, `opacity: 0` to `1`, 300ms. (2) **Decorative elements** (100ms): Lines, shapes, or borders draw in via `scaleX`/`scaleY` or `stroke-dashoffset`, 400ms. (3) **Heading** (200ms): Main title animates in via character split stagger or slide-up, 500ms. (4) **Subtitle/body** (500ms): Supporting text fades and slides up, 350ms. (5) **CTA button** (700ms): Button scales from 0.9 to 1.0 with bounce easing, 400ms. (6) **Secondary elements** (900ms): Tags, metadata, or additional items cascade in, 300ms. Total sequence: ~1200ms. Each step uses `animation-delay` relative to the section entering the viewport. Build as a GSAP timeline or Framer Motion sequence with labeled checkpoints for easy adjustment.
+
+## Technical Requirements
+
+- Use Intersection Observer API with configurable `threshold` and `rootMargin` for scroll-triggered staggers
+- Calculate stagger delays in JavaScript and apply as CSS custom properties (`--stagger-delay`) or inline `animation-delay`
+- Cap total stagger duration: if `itemCount * staggerDelay > maxTotalDuration`, reduce `staggerDelay` proportionally
+- Text splitting must re-run on window resize to handle responsive line break changes (debounce at 200ms)
+- Use `will-change: transform, opacity` on staggering elements during animation, remove via `animationend` listener
+- For grid stagger, calculate position indices only once on mount and on layout changes — cache in a data attribute
+- All stagger animations must use compositor-friendly properties only: `transform` and `opacity`
+- Exit animations should mirror enter animations in reverse order with 80% of the enter duration
+- Support `AnimatePresence` (Framer Motion) or `TransitionGroup` (React) for mount/unmount staggering
+- Batch Intersection Observer entries: when multiple items intersect in the same frame, sort by position before assigning delays
+
+## Technology Suggestions
+
+- Intersection Observer API for scroll-triggered activation
+- CSS `animation-delay` with custom properties for pure-CSS stagger
+- GSAP `stagger` utility and `timeline()` for complex orchestrations
+- Framer Motion `variants` with `staggerChildren`, `delayChildren`, and `when: "beforeChildren"`
+- `split-type` or custom text splitter for character/word/line splitting
+- CSS `@keyframes` with `animation-fill-mode: both` for holding start/end states
+- Tailwind CSS `animate-` utilities with custom delay classes
+- `@formkit/auto-animate` for simple list transitions
+- Lenis or native `scroll-behavior: smooth` for scroll-linked timing
+
+## Expected Output
+
+### Component Structure
+
+```
+components/
+  stagger/
+    StaggerGrid.jsx
+    StaggerList.jsx
+    TextSplitReveal.jsx
+    GalleryStagger.jsx
+    NavStagger.jsx
+    CounterStagger.jsx
+    MasonryReveal.jsx
+    OrchestratedSection.jsx
+  hooks/
+    useStagger.js
+    useInViewStagger.js
+    useTextSplit.js
+    useCountUp.js
+    useTimeline.js
+  utils/
+    staggerCalculators.js
+    textSplitter.js
+    positionSorter.js
+```
+
+### Code Requirements
+
+- `useStagger` hook accepts `count`, `delay`, `direction` and returns an array of delay values
+- `useInViewStagger` combines Intersection Observer with stagger — returns `{ ref, inView, getDelay(index) }`
+- `StaggerGrid` accepts `columns`, `direction` (diagonal, radial, row, column, random), `delay`, `animation` props
+- `StaggerList` accepts `animation` (fade, slide-left, slide-right, scale, flip), `delay`, and `exitReverse` props
+- `TextSplitReveal` accepts `splitBy` (character, word, line), `delay`, `animation`, and `trigger` (inView, immediate)
+- `OrchestratedSection` accepts a `timeline` array of `{ selector, animation, delay, duration }` objects
+- Stagger calculator utilities exported separately: `diagonalStagger()`, `radialStagger()`, `randomStagger()`
+- `textSplitter.js` splits text nodes at runtime, preserving original HTML and handling responsive reflow
+- All components use `data-stagger-index` attributes for CSS-based stagger fallback
+- TypeScript types for all direction enums, animation presets, and configuration objects
+
+### Accessibility
+
+- Respect `prefers-reduced-motion`: show all items immediately with no stagger or animation delay
+- Stagger-revealed content must be in the DOM from the start (not lazy-mounted) — only visually hidden with `opacity: 0`
+- Screen readers should access all content immediately regardless of animation state — use `aria-hidden` on animation wrappers, not on content
+- Text split spans must preserve the original text for assistive technology: use `aria-label` on the parent with full text, `aria-hidden="true"` on individual character/word spans
+- Navigation stagger must not delay keyboard focus availability — focusable items should be accessible even during animation
+- Counter stagger must show final values immediately for screen readers via `aria-label` or `aria-valuenow`
+- Orchestrated section delays must not exceed 1.5 seconds total — users should not wait for decorative animation to access content
+- Provide a CSS class `.stagger-complete` that is added after all items have finished animating, for use in integration tests

@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+:root {
+  --surface-0: #09090B;
+  --surface-1: #121216;
+  --surface-2: #1A1A22;
+  --surface-3: #242430;
+
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-tertiary: #71717A;
+  --text-disabled: #52525B;
+
+  --accent-primary: #8B5CF6;
+  --accent-hover: #A78BFA;
+  --accent-cyan: #06B6D4;
+
+  --vapor-pink: #ff71ce;
+  --vapor-orange: #ff9770;
+  --vapor-purple: #7b2ff7;
+  --vapor-teal: #01cdfe;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-emphasis: rgba(255, 255, 255, 0.14);
+}
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--surface-0);
+    color: var(--text-primary);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Chrome / Metallic and Aurora Text Treatments */
+.chrome-headline {
+  color: #FAFAFA;
+}
+
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .chrome-headline {
+    background: linear-gradient(135deg, #FFFFFF 0%, #E4E4E7 35%, #A78BFA 70%, #22D3EE 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .sunset-gradient-text {
+    background: linear-gradient(90deg, var(--vapor-pink) 0%, var(--vapor-orange) 50%, var(--vapor-teal) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Subtle Perspective Grid for Hero & Showcase Accents */
+.perspective-grid-floor {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(139, 92, 246, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 182, 212, 0.12) 1px, transparent 1px);
+  transform: perspective(500px) rotateX(60deg);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 85%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 85%);
+  will-change: transform;
+}
+
+/* Hover lift & glow effects */
+.hover-card-lift {
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), border-color 180ms cubic-bezier(0.16, 1, 0.3, 1), background-color 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.hover-card-lift:hover {
+  transform: translateY(-4px);
+  border-color: rgba(167, 139, 250, 0.35);
+  background-color: #16161D;
+}
+
+/* Sliding underline for links */
+.nav-link-underline {
+  position: relative;
+}
+
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(90deg, #8B5CF6, #06B6D4);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-underline:hover::after,
+.nav-link-underline.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-marquee {
+    animation: none !important;
+  }
+  .hover-card-lift:hover {
+    transform: none !important;
+  }
+}
